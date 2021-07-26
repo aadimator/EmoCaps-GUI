@@ -1,7 +1,7 @@
 import mne
 import pickle
 
-def preprocess(input_file_name, output_file_name, baseline_start=0, experiment_start=4):
+def preprocess(input_file_name, output_file_name, baseline_start=0, experiment_start=4, experiment_end=None):
     raw = mne.io.read_raw_edf(input_file_name, preload=True)
     eeg = raw.copy().pick_types(meg=False, eeg=True, exclude=[])
     eeg_indices = mne.pick_channels_regexp(eeg.ch_names, '^EEG')
@@ -36,7 +36,7 @@ def preprocess(input_file_name, output_file_name, baseline_start=0, experiment_s
     eeg.set_eeg_reference("average")
 
     baseline_selection = eeg.copy().crop(tmin=baseline_start, tmax=baseline_start + 3)
-    eeg_selection = eeg.copy().crop(tmin=experiment_start, tmax=experiment_start + 60)
+    eeg_selection = eeg.copy().crop(tmin=experiment_start, tmax=experiment_end)
 
     eeg_combined = mne.concatenate_raws([baseline_selection, eeg_selection])
 

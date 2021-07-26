@@ -1,14 +1,19 @@
 name: emocaps
 channels:
 - conda-forge
+- plotly
 dependencies:
 - python=3.7
 - pip
 - numpy
 - scipy
 - matplotlib
-- numba
 - pandas
+- numba
+- cudatoolkit=10.1
+- cudnn=7.6
+- tensorflow-gpu=2.3
+- tensorflow-estimator=2.3
 - xlrd
 - scikit-learn
 - h5py
@@ -37,5 +42,10 @@ dependencies:
 - mne
 - mffpy>=0.5.7
 - ipywidgets
+- plotly
 - pip:
   - ipyvtklink
+  - tensorflow-addons
+  - openpyxl
+  - opencv-python
+  - pytest
