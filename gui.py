@@ -1,6 +1,4 @@
-import os
 import sys
-import time
 import numba
 
 import numpy as np
@@ -115,7 +113,6 @@ class EmoCapsApp(QtWidgets.QMainWindow):
         self.update_status("Emotion Prediction completed.")
         emotion_labels = vad_to_emotion(class_to_vad(pred))
         self.labelResult.setText(f'<html><head/><body><p><span style=" font-size:24pt;">{dominant_emotion(emotion_labels)}</span></p></body></html>')
-        # fig = px.histogram(emotion_labels)
 
         df = pd.DataFrame(emotion_labels, columns=['Emotions'])
         fig = make_subplots(
@@ -129,28 +126,17 @@ class EmoCapsApp(QtWidgets.QMainWindow):
                             mode='lines+markers',
                             showlegend=False), row=1, col=1)
 
-        # fig.add_trace(
-        #     go.Scatter(df, showlegend=False,
-        #                   marker=dict(color="crimson", size=4, opacity=0.8)),
-        #     row=1, col=1
-        # )
-
-        # Add locations bar chart
         fig.add_trace(
             go.Histogram(x=df.Emotions, showlegend=False),
             row=1, col=2
         )
 
-
-        # Set theme, margin, and annotation in layout
         fig.update_layout(
             # template="plotly_dark",
             margin=dict(r=10, t=40, b=10, l=10),
             xaxis_rangeslider_visible=True
             # title_text='Emotion Labels' # title of plot
         )
-
-        # fig.update_xaxes(rangeslider= {'visible': False}, row=1, col=1)
 
         self.browser.setHtml(fig.to_html(include_plotlyjs='cdn'))
 
