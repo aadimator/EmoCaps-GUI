@@ -44,14 +44,14 @@ def dominant_emotion(emotion_labels):
 
 def vad_to_emotion(vad_labels):
     emotion_map = {
-        'HVHAHD': 'Joy',
-        'HVHALD': 'Surprise',
-        'HVLAHD': 'Excited',
-        'HVLALD': 'Calm',
-        'LVHAHD': 'Anger',
-        'LVHALD': 'Fear', #Disgust
-        'LVLAHD': 'Disgust',
-        'LVLALD': 'Sadness'
+        'HVHAHD': 'Joy 😄',
+        'HVHALD': 'Surprise 😲',
+        'HVLAHD': 'Excited 😃',
+        'HVLALD': 'Calm 🙂',
+        'LVHAHD': 'Anger 😠',
+        'LVHALD': 'Fear 😨', #Disgust
+        'LVLAHD': 'Disgust 🤢',
+        'LVLALD': 'Sadness 😔'
     }
 
     return [emotion_map[num] for num in vad_labels]
