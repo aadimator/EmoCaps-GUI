@@ -4,7 +4,7 @@ A graphical interface to use the **EmoCaps** model for emotion recognition using
 
 ![GUI](./media/gui.png)
 
-## Installation Instructions
+## Installation
 
 First, download the latest [miniconda](https://docs.conda.io/en/latest/miniconda.html) executable and install it on your system.
 
@@ -14,7 +14,7 @@ After that, open the `Anaconda Prompt` and install `mamba` by executing the foll
 Once `mamba` is installed, execute the following command to setup the environment:  
 `mamba env create -f environment.yml`
 
-## Usage Instructions
+## Usage
 
 Once your environment is set, you can execute the EmoCaps GUI application by following these steps:
 
