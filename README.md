@@ -1,6 +1,7 @@
 # EmoCaps-GUI
 
 A graphical interface to use the **EmoCaps** model for emotion recognition using EEG signals.
+![GUI](./media/gui.png)
 
 ## Installation Instructions
 
