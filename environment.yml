@@ -49,3 +49,5 @@ dependencies:
   - openpyxl
   - opencv-python
   - pytest
+  - pygame
+  - open3d
